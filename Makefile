@@ -7,7 +7,7 @@ activate: requirements.txt
 	./${VENV}/bin/pip install -r requirements.txt
 
 run: epic_venv/bin/activate
-	./${VENV}/bin/python3 Epic_Translation/src/translation/translation.py
+	./${VENV}/bin/python3 Epic_Translation/src/translation/__init__.py
 
 deactivate:
 	rm -rf ${VENV}
