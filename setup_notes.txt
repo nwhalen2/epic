@@ -1,0 +1,16 @@
+- run 'python3 get-pip.py' in this directory
+
+- export the package in your .bashrc file
+
+- pip install virtualenv
+
+- make sure you are in 'epic' top-level directory
+
+- run 'make activate'
+(this installs all the required dependencies and activates the virtual environment)
+
+- run 'make run' to execute translate.py
+
+- run 'make deactivate'
+(this removes the virtual environment - do this before making commits so
+that there aren't a bunch of random files in GitHub!)

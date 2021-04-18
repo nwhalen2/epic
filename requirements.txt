@@ -1,0 +1,4 @@
+# requirements.txt
+# Imports all dependent packages
+
+nltk
