@@ -14,5 +14,5 @@ setuptools.setup(
     package_dir={'': 'src'},
     py_modules=[os.path.splitext(os.path.basename(path))[0] for path in glob('src/*.py')],
     long_description=description,
-    install_requires=[],
+    install_requires=["nltk"],
 )

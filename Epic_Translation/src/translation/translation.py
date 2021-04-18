@@ -1,3 +1,13 @@
-# translation.py
+#!/usr/bin/env python3
 
-# main logic and functions for project
+############################################################################
+# 
+# translation.py
+# Authors: Epic Systems Preternship Team
+# Date: April 18, 2021
+#
+# main logic and functions for translation system
+#
+############################################################################
+
+print("hello world")
