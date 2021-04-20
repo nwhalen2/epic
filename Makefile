@@ -9,5 +9,8 @@ activate: requirements.txt
 run: epic_venv/bin/activate
 	./${VENV}/bin/python3 Epic_Translation/src/translation/__init__.py
 
+test: Epic_Translation/tests/test_translation.py
+	./${VENV}/bin/python3 $<
+
 deactivate:
 	rm -rf ${VENV}
