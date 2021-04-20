@@ -157,7 +157,106 @@
         }
     },
     'frequency' : {
-
+		42: {
+			'every' : {
+				136 : 'cada'
+			},
+			'hour' : {
+				136 : 'hora'
+			},
+			'hours' : {
+				136 : 'horas'
+			},
+			'time' : {
+				136 : 'vez'
+			},
+			'times' : {
+				136 : 'veces'
+			},
+			# special case
+			'each day' : {
+				136 : 'al día'
+			},
+			# special case
+			'a day' : {
+				136 : 'al día'
+			},
+			# special case, 'for' when followed by a frequency
+			'for -f' : {
+				136 : 'por'
+			},
+			'day' : {
+				136 : 'día'
+			}
+			'days' : {
+				136 : 'dias'
+			},
+			'daily' : {
+				136 : 'diariamente'
+			},
+			'night' : {
+				136 : 'noche'
+			},
+			'nights' : {
+				136 : 'noches'
+			},
+			'once' : {
+				136 : 'una vez'
+			},
+			# special case
+			'up to' : {
+				136 : 'hasta'
+			}
+		},
+		136 : {
+			'cada' : {
+				42 : 'every'
+			},
+			'hora' : {
+				42 : 'hour'
+			},
+			'horas' : {
+				42 : 'hours'
+			},
+			'vez' : {
+				42 : 'time'
+			},
+			'veces' : {
+				42 : 'times'
+			},
+			# special case
+			'al día' : {
+				42 : {'each day', 'a day'}
+			},
+			'por' : {
+				42 : 'for'
+			},
+			'durante' : {
+				42 : 'for'
+			},
+			'día' : {
+				42 : 'day'
+			},	
+			'dias' : {
+				42 : 'days'
+			},
+			'diariamente' : {
+				42 : 'daily'
+			},
+			'noche' : {
+				42 : 'night'
+			},
+			'noches' : {
+				42 : 'nights'
+			},
+			# special case
+			'una vez' : {
+				42 : 'once'
+			},
+			'hasta' : {
+				42 : 'up to'
+			}
+		} 
     },
     'extra' : {
          42 : {
