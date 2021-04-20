@@ -2,6 +2,8 @@
 
 - export the package in your .bashrc file
 
+- source ~/.bashrc
+
 - pip install virtualenv
 
 - make sure you are in 'epic' top-level directory
