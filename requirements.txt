@@ -3,5 +3,3 @@
 
 nltk
 pydeepl
-unittest
-sys
