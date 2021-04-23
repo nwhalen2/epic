@@ -13,6 +13,8 @@
 
 - run 'make run' to execute translate.py
 
+- run 'make test' to execute unit tests
+
 - run 'make deactivate'
 (this removes the virtual environment - do this before making commits so
 that there aren't a bunch of random files in GitHub!)

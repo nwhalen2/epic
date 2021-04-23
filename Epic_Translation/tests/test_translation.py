@@ -10,14 +10,18 @@
 # 
 ###############################################################################
 
-sys.path.insert(0, '~/epic/Epic_Translation/src/translation/')
-
-import translation
+from .context import translation
 import unittest
 
 
 class TestTranslationMethods(unittest.TestCase):
     '''Test translation methods'''
+
+    def test_call_api(self):
+        phrase = translation.call_translate_api("as directed", "ES")
+        self.assertEqual(phrase, "come se indica")
+        phrase = translation.call_translate_api("come se indica", "EN")
+        self.assertEqual(phrase, "as directed")
 
     def test_eng_to_esp_words(self):
         self.assertEqual('method call', 'expected result')
