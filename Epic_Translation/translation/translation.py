@@ -9,7 +9,7 @@
 ############################################################################
 
 from . import translation_dict
-import pydeepl
+import googletrans
 import nltk
 
 print("running translation.py")
@@ -18,15 +18,10 @@ print("running translation.py")
 # @param    string
 # @return   list of separated phrases
 def tokenize_prescrip(prescription):
-		tokenizer = nltk.tokenize.MWETokenizer([('by', 'mouth'), ('into', 'affected', 'nostril(s)'), ('as', 'instructed'),
- 								('into', 'one', 'nostril'), ('as', 'directed'), ('blood', 'sugar'), ('into', 'affected', 'eye(s)'), 
- 								('under', 'the', 'skin'), ('each', 'day'), ('a', 'day'), ('for', 'up', 'to', 'seven', 'days'), ('for', 'pain'), 
- 								('with', 'meals'), ('if', 'needed'), ('at', 'bed', 'time'), ('mild', 'pain'), ('for', 'moderate', 'pain'), 
- 								('do', 'not', 'crush', 'or', 'chew'), ('for', 'wheezing'), ('for', 'cough'), ('for', 'blood', 'pressure'), 
- 								('at', 'the', 'same', 'time'), ('for', 'cholesterol'), ('in', 'the', 'morning'), ('in', 'the', 'evening')])
+    tokenizer = nltk.tokenize.MWETokenizer([('by', 'mouth'), ('into', 'affected', 'nostril(s)'), ('as', 'instructed'), ('into', 'one', 'nostril'), ('as', 'directed'), ('blood', 'sugar'), ('into', 'affected', 'eye(s)'), ('under', 'the', 'skin'), ('each', 'day'), ('a', 'day'), ('for', 'up', 'to', 'seven', 'days'), ('for', 'pain'), ('with', 'meals'), ('if', 'needed'), ('at', 'bed', 'time'), ('mild', 'pain'), ('for', 'moderate', 'pain'), ('do', 'not', 'crush', 'or', 'chew'), ('for', 'wheezing'), ('for', 'cough'), ('for', 'blood', 'pressure'), ('at', 'the', 'same', 'time'), ('for', 'cholesterol'), ('in', 'the', 'morning'), ('in', 'the', 'evening')])
 
- 		words = tokenizer.tokenize(prescription.split());
- 		return words
+    words = tokenizer.tokenize(prescription.split());
+    return words
 
 
 # Check if phrase is in dictionary
@@ -53,19 +48,19 @@ def find_in_dict(phrase, source, target, dictionary):
 def call_translate_api(phrase, target):
 
     if target == 42:
-        to_lang = "EN";
+        to_lang = "en";
     elif target == 47:
-        to_lang = "FR"
+        to_lang = "fr"
     elif target == 136:
-        to_lang = "ES"
+        to_lang = "es"
     elif target == 41:
-        to_lang = "NL"
+        to_lang = "nl"
     # default to auto detect
     else:
         to_lang = "auto"
     
-    # call pydeepl api w/ auto translation
-    translation = pydeepl.translate(phrase, to_lang)
+    # call googletrans api w/ auto translation
+    translation = googletrans.Translator.translate(phrase, dest=to_lang, src='auto')
 
     return translation
 
