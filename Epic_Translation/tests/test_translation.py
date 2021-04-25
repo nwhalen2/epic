@@ -24,6 +24,22 @@ class TestTranslationMethods(unittest.TestCase):
         phrase = tr.call_translate_api("come se indica", "EN")
         self.assertEqual(phrase, "as directed")
 
+    def test_tokenize_prescrip(self):
+        phrase = "Take 1 tablet by mouth."
+        tokenized = tr.tokenize_prescrip(phrase)
+        self.assertEqual(tokenized, ["Take", "1", "tablet", "by_mouth"])
+        
+        phrase = "Apply 1 application topically 2 (two) times a day."
+        tokenized = tr.tokenize_prescrip(phrase)
+        self.assertEqual(tokenized, ["Apply", "1", "application", "topically", "2",
+            "two", "times", "a_day"])
+
+    def test_check_tokenized_phrases(self):
+        phrase = ["Apply", "1", "application", "topically", "2", "(two)", "times", 
+                "a_day"]
+        translated = ["aplique", "1", "aplicacion"]
+        self.assertEqual(phrase, "puffs")
+
     # def test_eng_to_esp_words(self):
         # self.assertEqual('method call', 'expected result')
 

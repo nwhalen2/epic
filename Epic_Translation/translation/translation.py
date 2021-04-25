@@ -24,6 +24,28 @@ def tokenize_prescrip(prescription):
     return words
 
 
+# Loop through all phrases in tokenized list
+# @param    list of phrases
+# @param    source language
+# @param    target language
+# @return   list of translated phrases
+def check_tokenized_phrases(phrases, source, target):
+
+    translated = []
+
+    # loop through all phrases
+    for phrase in phrases:
+        word = find_in_dict(phrase, source, target)
+
+        # check if None
+        if not word:
+            word = call_translate_api(phrase, target)
+        
+        translated.append(word)
+
+    return translated
+
+
 # Check if phrase is in dictionary
 # @param    string to translate
 # @param    integer source language
