@@ -18,7 +18,15 @@ print("running translation.py")
 # @param    string
 # @return   list of separated phrases
 def tokenize_prescrip(prescription):
-    pass
+		tokenizer = nltk.tokenize.MWETokenizer([('by', 'mouth'), ('into', 'affected', 'nostril(s)'), ('as', 'instructed'),
+ 								('into', 'one', 'nostril'), ('as', 'directed'), ('blood', 'sugar'), ('into', 'affected', 'eye(s)'), 
+ 								('under', 'the', 'skin'), ('each', 'day'), ('a', 'day'), ('for', 'up', 'to', 'seven', 'days'), ('for', 'pain'), 
+ 								('with', 'meals'), ('if', 'needed'), ('at', 'bed', 'time'), ('mild', 'pain'), ('for', 'moderate', 'pain'), 
+ 								('do', 'not', 'crush', 'or', 'chew'), ('for', 'wheezing'), ('for', 'cough'), ('for', 'blood', 'pressure'), 
+ 								('at', 'the', 'same', 'time'), ('for', 'cholesterol'), ('in', 'the', 'morning'), ('in', 'the', 'evening')])
+
+ 		words = tokenizer.tokenize(prescription.split());
+ 		return words
 
 
 # Check if phrase is in dictionary
