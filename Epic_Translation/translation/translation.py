@@ -36,15 +36,14 @@ def tokenize_prescrip(prescription):
 # @param    translation dictionary
 # @return   return translated value
 def find_in_dict(phrase, source, target, dictionary):
-
+   
     # search in dictionary
-    if false:
-        pass
-    # call translation api
-    else:
-        translation = call_translate_api(dictionary, phrase, target)
-        # place new word in 'extra' category
-
+    for category in dictionary:
+        if phrase in category[source]:
+            translation = dictionary[category[source][phrase][target]]
+            return translation
+        else:
+            return None
 
 # Call pydeepl API if phrase is not found
 # @param    string to translate
