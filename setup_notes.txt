@@ -8,8 +8,10 @@
 
 - make sure you are in 'epic' top-level directory
 
-- run 'make activate'
-(this installs all the required dependencies and activates the virtual environment)
+- run 'make install'
+(this installs all the required dependencies)
+
+- run 'source ./Epic_Translation/epic_venv/bin/activate' to activate virtual environment
 
 - run 'make run' to execute translate.py
 

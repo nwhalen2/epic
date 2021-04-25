@@ -11,6 +11,7 @@
 ###############################################################################
 
 from .context import translation
+from translation import translation as tr
 import unittest
 
 
@@ -18,25 +19,25 @@ class TestTranslationMethods(unittest.TestCase):
     '''Test translation methods'''
 
     def test_call_api(self):
-        phrase = translation.call_translate_api("as directed", "ES")
+        phrase = tr.call_translate_api("as directed", "ES")
         self.assertEqual(phrase, "come se indica")
-        phrase = translation.call_translate_api("come se indica", "EN")
+        phrase = tr.call_translate_api("come se indica", "EN")
         self.assertEqual(phrase, "as directed")
 
-    def test_eng_to_esp_words(self):
-        self.assertEqual('method call', 'expected result')
+    # def test_eng_to_esp_words(self):
+        # self.assertEqual('method call', 'expected result')
 
-    def test_esp_to_eng_words(self):
-        self.assertEqual('method call', 'expected result')
+    # def test_esp_to_eng_words(self):
+        # self.assertEqual('method call', 'expected result')
 
-    def test_eng_to_esp_sentence(self):
-        self.assertEqual('method call', 'expected result')
+    # def test_eng_to_esp_sentence(self):
+        # self.assertEqual('method call', 'expected result')
     
-    def test_esp_to_eng_sentence(self):
-        self.assertEqual('method call', 'expected result')
+    # def test_esp_to_eng_sentence(self):
+        # self.assertEqual('method call', 'expected result')
     
-    def test_api_translation(self):
-        self.assertEqual('method call', 'expected result')
+    # def test_api_translation(self):
+        # self.assertEqual('method call', 'expected result')
 
 
 if __name__ == '__main__':
