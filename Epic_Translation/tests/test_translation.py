@@ -20,8 +20,8 @@ class TestTranslationMethods(unittest.TestCase):
 
     def test_call_api(self):
         phrase = tr.call_translate_api("as directed", "ES")
-        self.assertEqual(phrase, "come se indica")
-        phrase = tr.call_translate_api("come se indica", "EN")
+        self.assertEqual(phrase, "como se indica")
+        phrase = tr.call_translate_api("como se indica", "EN")
         self.assertEqual(phrase, "as directed")
 
     def test_tokenize_prescrip(self):
@@ -55,6 +55,9 @@ class TestTranslationMethods(unittest.TestCase):
     # def test_api_translation(self):
         # self.assertEqual('method call', 'expected result')
 
+    def test_find_in_dict(self):
+        translation = tr.find_in_dict("as directed", 42, 136, dictionary)
+        self.assertEqual(translation, "como se indica")
 
 if __name__ == '__main__':
     unittest.main()
