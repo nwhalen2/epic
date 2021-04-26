@@ -63,16 +63,24 @@ def check_tokenized_phrases(phrases, source, target):
 # @param    integer target language
 # @return   return translated value
 def find_in_dict(phrase, source, target):
+    #COMMENTS: the indexing works (I tested in a separate file) if
+    # the dictionary is a dict, but it isn't currently working as 
+    # such. I'm looking into it more! And I left some of the things
+    # that I've tried so far commented out
 
-    dictionary = translation_dict.get_json()
-   
+    #dictionary = translation_dict.get_json()
+    dictionary = translation_dict
+    #dictionary = translation_dict.<translation>
+    
+    phrase = phrase.lower() 
+
     # search in dictionary
     for category in dictionary:
-        if phrase in category[source]:
-            translation = dictionary[category[source][phrase][target]]
+        if phrase in dictionary[category][source]:
+            translation = dictionary[category][source][phrase][target]
             return translation
-        
-    return None
+        else:    
+            return None
 
 
 # Call translation API if phrase is not found
