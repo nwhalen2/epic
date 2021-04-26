@@ -35,10 +35,12 @@ class TestTranslationMethods(unittest.TestCase):
             "(two)", "times", "a_day"])
 
     def test_check_tokenized_phrases(self):
-        phrase = ["Apply", "1", "application", "topically", "2", "(two)", "times", 
+        phrases = ["Apply", "1", "application", "topically", "2", "(two)", "times", 
                 "a_day"]
-        translated = ["aplique", "1", "aplicacion"]
-        self.assertEqual(phrase, "puffs")
+        translated = ["aplique", "1", "aplicacion", "por via topica", "2", "(dos)",
+                "veces", "al dia"]
+        test_phrases = tr.check_tokenized_phrases(phrases, 42, 136)
+        self.assertEqual(translated, test_phrases)
 
     # def test_eng_to_esp_words(self):
         # self.assertEqual('method call', 'expected result')

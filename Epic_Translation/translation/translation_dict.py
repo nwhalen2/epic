@@ -19,7 +19,7 @@
 
 import json
 
-translation_dict = {
+dictionary = {
     'command' : {
         42 : {
             'take' : {
@@ -362,7 +362,7 @@ translation_dict = {
 
 def get_json():
 
-    return json.dumps(translation_dict)
+    return json.dumps(dictionary)
 
 
 if __name__ == '__main__':

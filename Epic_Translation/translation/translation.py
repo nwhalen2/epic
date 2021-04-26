@@ -11,6 +11,7 @@
 from . import translation_dict
 import googletrans
 import nltk
+import json
 
 
 # Split prescription into phrases
@@ -64,12 +65,15 @@ def check_tokenized_phrases(phrases, source, target):
 # @return   return translated value
 def find_in_dict(phrase, source, target):
 
-    dictionary = translation_dict.get_json()
+    dictionary = translation_dict.dictionary
+
+    #json_dict = json.loads(translation_dict.get_json())
+    #print(json_dict)
    
     # search in dictionary
-    for category in dictionary:
-        if phrase in category[source]:
-            translation = dictionary[category[source][phrase][target]]
+    for category, langs in dictionary.items():
+        if phrase in langs[source]:
+            translation = langs[source][phrase][target]
             return translation
         
     return None
