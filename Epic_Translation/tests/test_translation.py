@@ -25,14 +25,14 @@ class TestTranslationMethods(unittest.TestCase):
         self.assertEqual(phrase, "as directed")
 
     def test_tokenize_prescrip(self):
-        phrase = "Take 1 tablet by mouth."
+        phrase = "Take 1 tablet by mouth"
         tokenized = tr.tokenize_prescrip(phrase)
         self.assertEqual(tokenized, ["Take", "1", "tablet", "by_mouth"])
         
-        phrase = "Apply 1 application topically 2 (two) times a day."
+        phrase = "Apply 1 application topically 2 (two) times a day"
         tokenized = tr.tokenize_prescrip(phrase)
         self.assertEqual(tokenized, ["Apply", "1", "application", "topically", "2",
-            "two", "times", "a_day"])
+            "(two)", "times", "a_day"])
 
     def test_check_tokenized_phrases(self):
         phrase = ["Apply", "1", "application", "topically", "2", "(two)", "times", 
@@ -56,7 +56,7 @@ class TestTranslationMethods(unittest.TestCase):
         # self.assertEqual('method call', 'expected result')
 
     def test_find_in_dict(self):
-        translation = tr.find_in_dict("as directed", 42, 136, dictionary)
+        translation = tr.find_in_dict("as directed", 42, 136)
         self.assertEqual(translation, "como se indica")
 
 if __name__ == '__main__':

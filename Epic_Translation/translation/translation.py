@@ -12,15 +12,25 @@ from . import translation_dict
 import googletrans
 import nltk
 
-print("running translation.py")
 
 # Split prescription into phrases
 # @param    string
 # @return   list of separated phrases
 def tokenize_prescrip(prescription):
-    tokenizer = nltk.tokenize.MWETokenizer([('by', 'mouth'), ('into', 'affected', 'nostril(s)'), ('as', 'instructed'), ('into', 'one', 'nostril'), ('as', 'directed'), ('blood', 'sugar'), ('into', 'affected', 'eye(s)'), ('under', 'the', 'skin'), ('each', 'day'), ('a', 'day'), ('for', 'up', 'to', 'seven', 'days'), ('for', 'pain'), ('with', 'meals'), ('if', 'needed'), ('at', 'bed', 'time'), ('mild', 'pain'), ('for', 'moderate', 'pain'), ('do', 'not', 'crush', 'or', 'chew'), ('for', 'wheezing'), ('for', 'cough'), ('for', 'blood', 'pressure'), ('at', 'the', 'same', 'time'), ('for', 'cholesterol'), ('in', 'the', 'morning'), ('in', 'the', 'evening')])
+    tokenizer = nltk.tokenize.MWETokenizer([('by', 'mouth'), 
+        ('into', 'affected', 'nostril(s)'), ('as', 'instructed'), 
+        ('into', 'one', 'nostril'), ('as', 'directed'), ('blood', 'sugar'), 
+        ('into', 'affected', 'eye(s)'), ('under', 'the', 'skin'), 
+        ('each', 'day'), ('a', 'day'), ('for', 'up', 'to', 'seven', 'days'), 
+        ('for', 'pain'), ('with', 'meals'), ('if', 'needed'), 
+        ('at', 'bed', 'time'), ('mild', 'pain'), ('for', 'moderate', 'pain'), 
+        ('do', 'not', 'crush', 'or', 'chew'), ('for', 'wheezing'), 
+        ('for', 'cough'), ('for', 'blood', 'pressure'), 
+        ('at', 'the', 'same', 'time'), ('for', 'cholesterol'), 
+        ('in', 'the', 'morning'), ('in', 'the', 'evening')])
 
     words = tokenizer.tokenize(prescription.split());
+
     return words
 
 
@@ -40,6 +50,7 @@ def check_tokenized_phrases(phrases, source, target):
         # check if None
         if not word:
             word = call_translate_api(phrase, target)
+            # TODO: add word into dictionary
         
         translated.append(word)
 
@@ -50,19 +61,21 @@ def check_tokenized_phrases(phrases, source, target):
 # @param    string to translate
 # @param    integer source language
 # @param    integer target language
-# @param    translation dictionary
 # @return   return translated value
-def find_in_dict(phrase, source, target, dictionary):
+def find_in_dict(phrase, source, target):
+
+    dictionary = translation_dict.get_json()
    
     # search in dictionary
     for category in dictionary:
         if phrase in category[source]:
             translation = dictionary[category[source][phrase][target]]
             return translation
-        else:
-            return None
+        
+    return None
 
-# Call pydeepl API if phrase is not found
+
+# Call translation API if phrase is not found
 # @param    string to translate
 # @param    integer target language
 # @return   return translated value
