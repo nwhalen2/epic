@@ -58,8 +58,16 @@ class TestTranslationMethods(unittest.TestCase):
         # self.assertEqual('method call', 'expected result')
 
     def test_find_in_dict(self):
+        translation = tr.find_in_dict("apply", 42, 136)
+        self.assertEqual(translation, "aplique")
+
         translation = tr.find_in_dict("as directed", 42, 136)
         self.assertEqual(translation, "como se indica")
 
+        translation = tr.find_in_dict("para la tos", 136, 42)
+        self.assertEqual(translation, "for cough")
+
+        translation = tr.find_in_dict("para el colesterol", 136, 42)
+        self.assertEqual(translation, "for cholesterol")
 if __name__ == '__main__':
     unittest.main()
