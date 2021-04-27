@@ -9,8 +9,10 @@
 ############################################################################
 
 from . import translation_dict
+import googletrans
 import goslate
 import nltk
+import json
 import string
 
 print("running translation.py")
