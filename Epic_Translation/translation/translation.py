@@ -10,8 +10,11 @@
 
 from . import translation_dict
 import googletrans
+import goslate
 import nltk
 import json
+import string
+
 
 
 # Split prescription into phrases
@@ -30,6 +33,10 @@ def tokenize_prescrip(prescription):
         ('at', 'the', 'same', 'time'), ('for', 'cholesterol'), 
         ('in', 'the', 'morning'), ('in', 'the', 'evening')])
 
+    punctuation = string.punctuation
+    for c in punctuation:
+        prescription = prescription.replace(c, "")
+    
     words = tokenizer.tokenize(prescription.split());
 
     return words
@@ -86,19 +93,20 @@ def find_in_dict(phrase, source, target):
 def call_translate_api(phrase, target):
 
     if target == 42:
-        to_lang = "en";
+        to_lang = 'EN'
     elif target == 47:
-        to_lang = "fr"
+        to_lang = 'FR'
     elif target == 136:
-        to_lang = "es"
+        to_lang = 'ES'
     elif target == 41:
-        to_lang = "nl"
+        to_lang = 'NL'
     # default to auto detect
     else:
-        to_lang = "auto"
+        to_lang = 'auto'
     
-    # call googletrans api w/ auto translation
-    translation = googletrans.Translator.translate(phrase, dest=to_lang, src='auto')
+    # call translator api 
+    #gs = goslate.Goslate(service_urls=['http://translate.google.com'])
+    #translation = gs.translate(phrase, to_lang)
 
     return translation
 
