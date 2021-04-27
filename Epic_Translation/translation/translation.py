@@ -10,7 +10,7 @@
 
 from . import translation_dict
 import googletrans
-import goslate
+#import goslate
 import nltk
 import json
 import string

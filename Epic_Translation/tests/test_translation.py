@@ -29,10 +29,10 @@ class TestTranslationMethods(unittest.TestCase):
         tokenized = tr.tokenize_prescrip(phrase)
         self.assertEqual(tokenized, ["Take", "1", "tablet", "by_mouth"])
         
-        phrase = "Apply 1 application topically 2 (two) times a day"
+        phrase = "Apply 1 application topically 2 (two) times a day."
         tokenized = tr.tokenize_prescrip(phrase)
         self.assertEqual(tokenized, ["Apply", "1", "application", "topically", "2",
-            "(two)", "times", "a_day"])
+            "two", "times", "a_day"])
 
     def test_check_tokenized_phrases(self):
         phrases = ["Apply", "1", "application", "topically", "2", "(two)", "times", 
