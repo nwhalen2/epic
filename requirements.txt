@@ -2,4 +2,4 @@
 # Imports all dependent packages
 
 nltk
-pydeepl
+googletrans

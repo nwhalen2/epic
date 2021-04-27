@@ -15,40 +15,78 @@ import nltk
 import json
 import string
 
-print("running translation.py")
+
 
 # Split prescription into phrases
 # @param    string
 # @return   list of separated phrases
 def tokenize_prescrip(prescription):
-    tokenizer = nltk.tokenize.MWETokenizer([('by', 'mouth'), ('into', 'affected', 'nostril(s)'), ('as', 'instructed'), ('into', 'one', 'nostril'), ('as', 'directed'), ('blood', 'sugar'), ('into', 'affected', 'eye(s)'), ('under', 'the', 'skin'), ('each', 'day'), ('a', 'day'), ('for', 'up', 'to', 'seven', 'days'), ('for', 'pain'), ('with', 'meals'), ('if', 'needed'), ('at', 'bed', 'time'), ('mild', 'pain'), ('for', 'moderate', 'pain'), ('do', 'not', 'crush', 'or', 'chew'), ('for', 'wheezing'), ('for', 'cough'), ('for', 'blood', 'pressure'), ('at', 'the', 'same', 'time'), ('for', 'cholesterol'), ('in', 'the', 'morning'), ('in', 'the', 'evening')])
+    tokenizer = nltk.tokenize.MWETokenizer([('by', 'mouth'), 
+        ('into', 'affected', 'nostril(s)'), ('as', 'instructed'), 
+        ('into', 'one', 'nostril'), ('as', 'directed'), ('blood', 'sugar'), 
+        ('into', 'affected', 'eye(s)'), ('under', 'the', 'skin'), 
+        ('each', 'day'), ('a', 'day'), ('for', 'up', 'to', 'seven', 'days'), 
+        ('for', 'pain'), ('with', 'meals'), ('if', 'needed'), 
+        ('at', 'bed', 'time'), ('mild', 'pain'), ('for', 'moderate', 'pain'), 
+        ('do', 'not', 'crush', 'or', 'chew'), ('for', 'wheezing'), 
+        ('for', 'cough'), ('for', 'blood', 'pressure'), 
+        ('at', 'the', 'same', 'time'), ('for', 'cholesterol'), 
+        ('in', 'the', 'morning'), ('in', 'the', 'evening')])
 
     punctuation = string.punctuation
     for c in punctuation:
         prescription = prescription.replace(c, "")
     
     words = tokenizer.tokenize(prescription.split());
+
     return words
+
+
+# Loop through all phrases in tokenized list
+# @param    list of phrases
+# @param    source language
+# @param    target language
+# @return   list of translated phrases
+def check_tokenized_phrases(phrases, source, target):
+
+    translated = []
+
+    # loop through all phrases
+    for phrase in phrases:
+        word = find_in_dict(phrase, source, target)
+
+        # check if None
+        if not word:
+            word = call_translate_api(phrase, target)
+            # TODO: add word into dictionary
+        
+        translated.append(word)
+
+    return translated
 
 
 # Check if phrase is in dictionary
 # @param    string to translate
 # @param    integer source language
 # @param    integer target language
-# @param    translation dictionary
 # @return   return translated value
-def find_in_dict(phrase, source, target, dictionary):
+def find_in_dict(phrase, source, target):
 
+    dictionary = translation_dict.dictionary
+
+    #json_dict = json.loads(translation_dict.get_json())
+    #print(json_dict)
+   
     # search in dictionary
-    if false:
-        pass
-    # call translation api
-    else:
-        translation = call_translate_api(dictionary, phrase, target)
-        # place new word in 'extra' category
+    for category, langs in dictionary.items():
+        if phrase in langs[source]:
+            translation = langs[source][phrase][target]
+            return translation
+        
+    return None
 
 
-# Call pydeepl API if phrase is not found
+# Call translation API if phrase is not found
 # @param    string to translate
 # @param    integer target language
 # @return   return translated value

@@ -10,7 +10,7 @@ run:
 	./${VENV}/bin/python3 Epic_Translation/__main__.py
 
 test: Epic_Translation/tests/test_translation.py
-	./${VENV}/bin/python3 -m unittest Epic_Translation.tests.test_translation 
+	./${VENV}/bin/python3 -m unittest Epic_Translation.tests.test_translation -v 
 
 deactivate:
 	rm -rf ${VENV}

@@ -20,9 +20,27 @@ class TestTranslationMethods(unittest.TestCase):
 
     def test_call_api(self):
         phrase = tr.call_translate_api("as directed", "ES")
-        self.assertEqual(phrase, "come se indica")
-        phrase = tr.call_translate_api("come se indica", "EN")
+        self.assertEqual(phrase, "como se indica")
+        phrase = tr.call_translate_api("como se indica", "EN")
         self.assertEqual(phrase, "as directed")
+
+    def test_tokenize_prescrip(self):
+        phrase = "Take 1 tablet by mouth"
+        tokenized = tr.tokenize_prescrip(phrase)
+        self.assertEqual(tokenized, ["Take", "1", "tablet", "by_mouth"])
+        
+        phrase = "Apply 1 application topically 2 (two) times a day"
+        tokenized = tr.tokenize_prescrip(phrase)
+        self.assertEqual(tokenized, ["Apply", "1", "application", "topically", "2",
+            "(two)", "times", "a_day"])
+
+    def test_check_tokenized_phrases(self):
+        phrases = ["Apply", "1", "application", "topically", "2", "(two)", "times", 
+                "a_day"]
+        translated = ["aplique", "1", "aplicacion", "por via topica", "2", "(dos)",
+                "veces", "al dia"]
+        test_phrases = tr.check_tokenized_phrases(phrases, 42, 136)
+        self.assertEqual(translated, test_phrases)
 
     # def test_eng_to_esp_words(self):
         # self.assertEqual('method call', 'expected result')
@@ -39,6 +57,9 @@ class TestTranslationMethods(unittest.TestCase):
     # def test_api_translation(self):
         # self.assertEqual('method call', 'expected result')
 
+    def test_find_in_dict(self):
+        translation = tr.find_in_dict("as directed", 42, 136)
+        self.assertEqual(translation, "como se indica")
 
 if __name__ == '__main__':
     unittest.main()

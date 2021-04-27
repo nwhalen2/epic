@@ -17,7 +17,9 @@
 #
 ###############################################################################
 
-{
+import json
+
+dictionary = {
     'command' : {
         42 : {
             'take' : {
@@ -66,16 +68,16 @@
                 136 : 'inhalaciones'
             },
             'capsule' : {
-                136 : 'cápsula'
+                136 : 'capsula'
             },
             'application' : {
-                136 : 'aplicación'
+                136 : 'aplicacion'
             },
             'patch' : {
                 136 : 'parche'
             },
             'puff' : {
-                136 : 'inhalación'
+                136 : 'inhalacion'
             }
         }, 
         136 : {
@@ -88,16 +90,16 @@
             'inhalaciones' : {
                 42 : 'puffs'
             },
-            'cápsula' : {
+            'capsula' : {
                 42 : 'capsule'
             },
-            'aplicación' : {
+            'aplicacion' : {
                 42 : 'application'
             },
             'parche' : {
                 42 : 'patch'
             },
-            'inhalación' : {
+            'inhalacion' : {
                 42 : 'puff'
             }
         }
@@ -105,16 +107,16 @@
     'method' : {
         42 : {
             'by mouth' : {
-                136 : 'por vía oral'
+                136 : 'por vaa oral'
             },
             'topically' : {
-                136 : 'por vía tópica'
+                136 : 'por via topica'
             },
             'into affected notril(s)' : {
                 136 : 'en los orificios nasales afectados'
             },
             'as instructed' : {
-                136 : 'según las instrucciones'
+                136 : 'segun las instrucciones'
             },
             'into one nostril' : {
                 136 : 'en un orificio nasal'
@@ -123,23 +125,23 @@
                 136 : 'como se indica'
             },
             'blood sugar' : {
-                136 : 'el nivel de azúcar en las sangre'
+                136 : 'el nivel de azucar en las sangre'
             },
             'into affected eye(s)' : {
                 136 : 'en los ojos afectados'
             }
         },
         136 : {
-            'por vía oral' : {
+            'por via oral' : {
                 42 : 'by mouth'
             },
-            'por vía tópica' : {
+            'por via topica' : {
                 42 : 'topically'
             },
             'en los orificios nasales afectados' : {
                 42 : 'into affected nostril(s)'
             },
-            'según las instrucciones' : {
+            'segun las instrucciones' : {
                 42 : 'as instructed'
             },
             'en un orificio nasal' : {
@@ -148,7 +150,7 @@
             'como se indica' : {
                 42 : 'as directed'
             },
-            'el nivel de azúcar en las sangre' : {
+            'el nivel de azucar en las sangre' : {
                 42 : 'blood sugar'
             },
             'en los ojos afectados' : {
@@ -175,18 +177,18 @@
 			},
 			# special case
 			'each day' : {
-				136 : 'al día'
+				136 : 'al dia'
 			},
 			# special case
 			'a day' : {
-				136 : 'al día'
+				136 : 'al dia'
 			},
 			# special case, 'for' when followed by a frequency
 			'for -f' : {
 				136 : 'por'
 			},
 			'day' : {
-				136 : 'día'
+				136 : 'dia'
 			},
 			'days' : {
 				136 : 'dias'
@@ -225,8 +227,9 @@
 				42 : 'times'
 			},
 			# special case
-			'al día' : {
-				42 : {'each day', 'a day'}
+			'al dia' : {
+				#42 : {'each day', 'a day'}
+                42 : 'each day'
 			},
 			'por' : {
 				42 : 'for'
@@ -234,7 +237,7 @@
 			'durante' : {
 				42 : 'for'
 			},
-			'día' : {
+			'dia' : {
 				42 : 'day'
 			},	
 			'dias' : {
@@ -297,7 +300,7 @@
                 136 : 'para la tos'
             },
             'for blood pressure' : {
-                136 : 'para la presión arterial'
+                136 : 'para la presion arterial'
             },
             'at the same time' : {
                 136 : 'a la misma hora'
@@ -343,7 +346,7 @@
             'para la tos' : {
                 42 : 'for cough'
             },
-            'para la presión arterial' : {
+            'para la presion arterial' : {
                 42 : 'for blood pressure'
             },
             'a la misma hora' : {
@@ -355,3 +358,12 @@
         }
     }
 }
+
+
+def get_json():
+
+    return json.dumps(dictionary)
+
+
+if __name__ == '__main__':
+    get_json()
