@@ -1,0 +1,26 @@
+.col-sm-4 {
+	text-align: center;
+}
+
+h1 {
+	padding: .25em;
+}
+
+button {
+	color: white;
+	background-color: red;
+}
+
+button::hover {
+	background-color: black;
+}
+
+.response {
+	color: red;
+	padding: 2em;
+	margin: 1em;
+	text-align: left;
+	background-color: black;
+	border-color: red;
+}
+
