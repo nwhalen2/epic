@@ -362,7 +362,9 @@ dictionary = {
 
 def get_json():
 
-    return json.dumps(dictionary)
+    with open("translation_dict.json", "w") as fh:
+        json.dump(dictionary, fh, indent=4)
+    return json.dumps(dictionary, indent = 4)
 
 
 if __name__ == '__main__':

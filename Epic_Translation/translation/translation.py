@@ -8,13 +8,13 @@
 #
 ############################################################################
 
-from . import translation_dict
 import googletrans
 #import goslate
 import nltk
 import json
 import string
-
+import pprint
+import os
 
 
 # Split prescription into phrases
@@ -51,14 +51,26 @@ def check_tokenized_phrases(phrases, source, target):
 
     translated = []
 
+    # open JSON file
+    with open(os.path.abspath("Epic_Translation/translation/translation_dict.json"), "r+") as json_file:
+        dictionary = json.load(json_file)
+
+    # convert source and target integers to string for JSON
+    source = str(source)
+    traget = str(target)
+
     # loop through all phrases
     for phrase in phrases:
-        word = find_in_dict(phrase, source, target)
+        # remove any hyphens before searching
+        phrase = phrase.replace("-", "")
+        word = find_in_dict(phrase, source, target, dictionary)
 
         # check if None
         if not word:
             word = call_translate_api(phrase, target)
-            # TODO: add word into dictionary
+            # add word into dictionary
+            dictionary["extra"][source][phrase] = {target : word}
+            # TODO: update file
         
         translated.append(word)
 
@@ -67,20 +79,16 @@ def check_tokenized_phrases(phrases, source, target):
 
 # Check if phrase is in dictionary
 # @param    string to translate
-# @param    integer source language
-# @param    integer target language
+# @param    string source language
+# @param    string target language
+# @param    json dictionary
 # @return   return translated value
-def find_in_dict(phrase, source, target):
+def find_in_dict(phrase, source, target, json_dict):
 
-    dictionary = translation_dict.dictionary
-
-    #json_dict = json.loads(translation_dict.get_json())
-    #print(json_dict)
-   
     # search in dictionary
-    for category, langs in dictionary.items():
-        if phrase in langs[source]:
-            translation = langs[source][phrase][target]
+    for category in json_dict:
+        if phrase in json_dict[category][source]:
+            translation = json_dict[category][source][phrase][target]
             return translation
         
     return None
@@ -107,6 +115,7 @@ def call_translate_api(phrase, target):
     # call translator api 
     #gs = goslate.Goslate(service_urls=['http://translate.google.com'])
     #translation = gs.translate(phrase, to_lang)
+    translation = ""
 
     return translation
 

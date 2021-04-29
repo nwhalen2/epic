@@ -1,4 +1,5 @@
-###############################################################################
+#
+#############################################################################
 # 
 # test_translation.py
 #
@@ -12,6 +13,8 @@
 
 from .context import translation
 from translation import translation as tr
+import os
+import json
 import unittest
 
 
@@ -58,16 +61,19 @@ class TestTranslationMethods(unittest.TestCase):
         # self.assertEqual('method call', 'expected result')
 
     def test_find_in_dict(self):
-        translation = tr.find_in_dict("apply", 42, 136)
+        with open(os.path.abspath("Epic_Translation/translation/translation_dict.json"), "r") as fh:
+            dictionary = json.load(fh)
+
+        translation = tr.find_in_dict("apply", 42, 136, dictionary)
         self.assertEqual(translation, "aplique")
 
-        translation = tr.find_in_dict("as directed", 42, 136)
+        translation = tr.find_in_dict("as directed", 42, 136, dictionary)
         self.assertEqual(translation, "como se indica")
 
-        translation = tr.find_in_dict("para la tos", 136, 42)
+        translation = tr.find_in_dict("para la tos", 136, 42, dictionary)
         self.assertEqual(translation, "for cough")
 
-        translation = tr.find_in_dict("para el colesterol", 136, 42)
+        translation = tr.find_in_dict("para el colesterol", 136, 42, dictionary)
         self.assertEqual(translation, "for cholesterol")
 if __name__ == '__main__':
     unittest.main()
