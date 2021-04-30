@@ -21,4 +21,6 @@
 (this removes the virtual environment - do this before making commits so
 that there aren't a bunch of random files in GitHub!)
 
+- 'deactivate' to exit venv
+
 - add any external packages to 'requirements.txt'
