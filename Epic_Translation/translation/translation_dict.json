@@ -47,16 +47,16 @@
                 "136": "inhalaciones"
             },
             "capsule": {
-                "136": "capsula"
+                "136": "cápsula"
             },
             "application": {
-                "136": "aplicacion"
+                "136": "aplicación"
             },
             "patch": {
                 "136": "parche"
             },
             "puff": {
-                "136": "inhalacion"
+                "136": "inhalación"
             }
         },
         "136": {
@@ -69,16 +69,16 @@
             "inhalaciones": {
                 "42": "puffs"
             },
-            "capsula": {
+            "cápsula": {
                 "42": "capsule"
             },
-            "aplicacion": {
+            "aplicación": {
                 "42": "application"
             },
             "parche": {
                 "42": "patch"
             },
-            "inhalacion": {
+            "inhalación": {
                 "42": "puff"
             }
         }
@@ -86,16 +86,16 @@
     "method": {
         "42": {
             "by mouth": {
-                "136": "por vaa oral"
+                "136": "por vía oral"
             },
             "topically": {
-                "136": "por via topica"
+                "136": "por vía tópica"
             },
             "into affected notril(s)": {
                 "136": "en los orificios nasales afectados"
             },
             "as instructed": {
-                "136": "segun las instrucciones"
+                "136": "según las instrucciones"
             },
             "into one nostril": {
                 "136": "en un orificio nasal"
@@ -104,23 +104,23 @@
                 "136": "como se indica"
             },
             "blood sugar": {
-                "136": "el nivel de azucar en las sangre"
+                "136": "el nivel de azúcar en las sangre"
             },
             "into affected eye(s)": {
                 "136": "en los ojos afectados"
             }
         },
         "136": {
-            "por via oral": {
+            "por vía oral": {
                 "42": "by mouth"
             },
-            "por via topica": {
+            "por vía tópica": {
                 "42": "topically"
             },
             "en los orificios nasales afectados": {
                 "42": "into affected nostril(s)"
             },
-            "segun las instrucciones": {
+            "según las instrucciones": {
                 "42": "as instructed"
             },
             "en un orificio nasal": {
@@ -129,7 +129,7 @@
             "como se indica": {
                 "42": "as directed"
             },
-            "el nivel de azucar en las sangre": {
+            "el nivel de azúcar en las sangre": {
                 "42": "blood sugar"
             },
             "en los ojos afectados": {
@@ -155,19 +155,19 @@
                 "136": "veces"
             },
             "each day": {
-                "136": "al dia"
+                "136": "al día"
             },
             "a day": {
-                "136": "al dia"
+                "136": "al día"
             },
             "for -f": {
                 "136": "por"
             },
             "day": {
-                "136": "dia"
+                "136": "día"
             },
             "days": {
-                "136": "dias"
+                "136": "días"
             },
             "daily": {
                 "136": "diariamente"
@@ -201,7 +201,7 @@
             "veces": {
                 "42": "times"
             },
-            "al dia": {
+            "al día": {
                 "42": "each day"
             },
             "por": {
@@ -210,10 +210,10 @@
             "durante": {
                 "42": "for"
             },
-            "dia": {
+            "día": {
                 "42": "day"
             },
-            "dias": {
+            "días": {
                 "42": "days"
             },
             "diariamente": {
@@ -230,6 +230,72 @@
             },
             "hasta": {
                 "42": "up to"
+            }
+        }
+    },
+    "number": {
+        "42": {
+            "one": {
+                "136": "uno"
+            },
+            "two": {
+                "136": "dos"
+            },
+            "three": {
+                "136": "tres"
+            },
+            "four": {
+                "136": "quatro"
+            },
+            "five": {
+                "136": "cinco"
+            },
+            "six": {
+                "136": "seis"
+            },
+            "seven": {
+                "136": "siete"
+            },
+            "eight": {
+                "136": "ocho"
+            },
+            "nine": {
+                "136": "nueve"
+            },
+            "ten": {
+                "136": "diez"
+            }
+        },
+        "136": {
+            "uno": {
+                "42": "one"
+            },
+            "dos": {
+                "42": "two"
+            },
+            "tres": {
+                "42": "three"
+            },
+            "quatro": {
+                "42": "four"
+            },
+            "cinco": {
+                "42": "five"
+            },
+            "seis": {
+                "42": "six"
+            },
+            "siete": {
+                "42": "seven"
+            },
+            "ocho": {
+                "42": "eight"
+            },
+            "nueve": {
+                "42": "nine"
+            },
+            "diez": {
+                "42": "ten"
             }
         }
     },
@@ -272,13 +338,22 @@
                 "136": "para la tos"
             },
             "for blood pressure": {
-                "136": "para la presion arterial"
+                "136": "para la presión arterial"
             },
             "at the same time": {
                 "136": "a la misma hora"
             },
             "for cholesterol": {
                 "136": "para el colesterol"
+            },
+            "for": {
+                "136": ""
+            },
+            "mild pain": {
+                "136": ""
+            },
+            "for up to": {
+                "136": ""
             }
         },
         "136": {
@@ -318,7 +393,7 @@
             "para la tos": {
                 "42": "for cough"
             },
-            "para la presion arterial": {
+            "para la presión arterial": {
                 "42": "for blood pressure"
             },
             "a la misma hora": {

@@ -68,16 +68,16 @@ dictionary = {
                 136 : 'inhalaciones'
             },
             'capsule' : {
-                136 : 'capsula'
+                136 : 'cápsula'
             },
             'application' : {
-                136 : 'aplicacion'
+                136 : 'aplicación'
             },
             'patch' : {
                 136 : 'parche'
             },
             'puff' : {
-                136 : 'inhalacion'
+                136 : 'inhalación'
             }
         }, 
         136 : {
@@ -90,16 +90,16 @@ dictionary = {
             'inhalaciones' : {
                 42 : 'puffs'
             },
-            'capsula' : {
+            'cápsula' : {
                 42 : 'capsule'
             },
-            'aplicacion' : {
+            'aplicación' : {
                 42 : 'application'
             },
             'parche' : {
                 42 : 'patch'
             },
-            'inhalacion' : {
+            'inhalación' : {
                 42 : 'puff'
             }
         }
@@ -107,16 +107,16 @@ dictionary = {
     'method' : {
         42 : {
             'by mouth' : {
-                136 : 'por vaa oral'
+                136 : 'por vía oral'
             },
             'topically' : {
-                136 : 'por via topica'
+                136 : 'por vía tópica'
             },
             'into affected notril(s)' : {
                 136 : 'en los orificios nasales afectados'
             },
             'as instructed' : {
-                136 : 'segun las instrucciones'
+                136 : 'según las instrucciones'
             },
             'into one nostril' : {
                 136 : 'en un orificio nasal'
@@ -125,23 +125,23 @@ dictionary = {
                 136 : 'como se indica'
             },
             'blood sugar' : {
-                136 : 'el nivel de azucar en las sangre'
+                136 : 'el nivel de azúcar en las sangre'
             },
             'into affected eye(s)' : {
                 136 : 'en los ojos afectados'
             }
         },
         136 : {
-            'por via oral' : {
+            'por vía oral' : {
                 42 : 'by mouth'
             },
-            'por via topica' : {
+            'por vía tópica' : {
                 42 : 'topically'
             },
             'en los orificios nasales afectados' : {
                 42 : 'into affected nostril(s)'
             },
-            'segun las instrucciones' : {
+            'según las instrucciones' : {
                 42 : 'as instructed'
             },
             'en un orificio nasal' : {
@@ -150,7 +150,7 @@ dictionary = {
             'como se indica' : {
                 42 : 'as directed'
             },
-            'el nivel de azucar en las sangre' : {
+            'el nivel de azúcar en las sangre' : {
                 42 : 'blood sugar'
             },
             'en los ojos afectados' : {
@@ -175,23 +175,21 @@ dictionary = {
 			'times' : {
 				136 : 'veces'
 			},
-			# special case
 			'each day' : {
-				136 : 'al dia'
+				136 : 'al día'
 			},
-			# special case
 			'a day' : {
-				136 : 'al dia'
+				136 : 'al día'
 			},
 			# special case, 'for' when followed by a frequency
 			'for -f' : {
 				136 : 'por'
 			},
 			'day' : {
-				136 : 'dia'
+				136 : 'día'
 			},
 			'days' : {
-				136 : 'dias'
+				136 : 'días'
 			},
 			'daily' : {
 				136 : 'diariamente'
@@ -205,7 +203,6 @@ dictionary = {
 			'once' : {
 				136 : 'una vez'
 			},
-			# special case
 			'up to' : {
 				136 : 'hasta'
 			}
@@ -226,9 +223,7 @@ dictionary = {
 			'veces' : {
 				42 : 'times'
 			},
-			# special case
-			'al dia' : {
-				#42 : {'each day', 'a day'}
+			'al día' : {
                 42 : 'each day'
 			},
 			'por' : {
@@ -237,10 +232,10 @@ dictionary = {
 			'durante' : {
 				42 : 'for'
 			},
-			'dia' : {
+			'día' : {
 				42 : 'day'
 			},	
-			'dias' : {
+			'días' : {
 				42 : 'days'
 			},
 			'diariamente' : {
@@ -252,7 +247,6 @@ dictionary = {
 			'noches' : {
 				42 : 'nights'
 			},
-			# special case
 			'una vez' : {
 				42 : 'once'
 			},
@@ -260,6 +254,72 @@ dictionary = {
 				42 : 'up to'
 			}
 		} 
+    },
+    'number': {
+        42 : {
+            'one' : {
+                136 : 'uno'
+            },
+            'two' : {
+                136 : 'dos'
+            },
+            'three' : {
+                136 : 'tres'
+            },
+            'four' : {
+                136 : 'quatro'
+            },
+            'five' : {
+                    136 : 'cinco'
+            },
+            'six' : {
+                136 : 'seis'
+            },
+            'seven' : {
+                136 : 'siete'
+            },
+            'eight' : {
+                136 : 'ocho'
+            },
+            'nine' : {
+                136 : 'nueve'
+            },
+            'ten' : {
+                136 : 'diez'
+            },
+        },
+        136 : {
+            'uno' : {
+                42 : 'one'
+            },
+            'dos' : {
+                42 : 'two'
+            },
+            'tres' : {
+                42 : 'three'
+            },
+            'quatro' : {
+                42 : 'four'
+            },
+            'cinco' : {
+                42 : 'five'
+            },
+            'seis' : {
+                42 : 'six'
+            },
+            'siete' : {
+                42 : 'seven'
+            },
+            'ocho' : {
+                42 : 'eight'
+            },
+            'nueve' : {
+                42 : 'nine'
+            },
+            'diez' : {
+                42 : 'ten'
+            },
+        }
     },
     'extra' : {
          42 : {
@@ -276,7 +336,7 @@ dictionary = {
                 136 : 'para el dolor'
             },
             'with meals' : {
-                    136 : 'con comida'
+                136 : 'con comida'
             },
             'if needed' : {
                 136 : 'si necesario'
@@ -300,7 +360,7 @@ dictionary = {
                 136 : 'para la tos'
             },
             'for blood pressure' : {
-                136 : 'para la presion arterial'
+                136 : 'para la presión arterial'
             },
             'at the same time' : {
                 136 : 'a la misma hora'
@@ -346,7 +406,7 @@ dictionary = {
             'para la tos' : {
                 42 : 'for cough'
             },
-            'para la presion arterial' : {
+            'para la presión arterial' : {
                 42 : 'for blood pressure'
             },
             'a la misma hora' : {
@@ -363,8 +423,7 @@ dictionary = {
 def get_json():
 
     with open("translation_dict.json", "w") as fh:
-        json.dump(dictionary, fh, indent=4)
-    return json.dumps(dictionary, indent = 4)
+        json.dump(dictionary, fh, indent=4, ensure_ascii=False)
 
 
 if __name__ == '__main__':

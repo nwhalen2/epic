@@ -25,7 +25,7 @@ def tokenize_prescrip(prescription):
         ('into', 'affected', 'nostril(s)'), ('as', 'instructed'), 
         ('into', 'one', 'nostril'), ('as', 'directed'), ('blood', 'sugar'), 
         ('into', 'affected', 'eye(s)'), ('under', 'the', 'skin'), 
-        ('each', 'day'), ('a', 'day'), ('for', 'up', 'to', 'seven', 'days'), 
+        ('each', 'day'), ('a', 'day'), ('for', 'up', 'to'), 
         ('for', 'pain'), ('with', 'meals'), ('if', 'needed'), 
         ('at', 'bed', 'time'), ('mild', 'pain'), ('for', 'moderate', 'pain'), 
         ('do', 'not', 'crush', 'or', 'chew'), ('for', 'wheezing'), 
@@ -52,25 +52,39 @@ def check_tokenized_phrases(phrases, source, target):
     translated = []
 
     # open JSON file
-    with open(os.path.abspath("Epic_Translation/translation/translation_dict.json"), "r+") as json_file:
-        dictionary = json.load(json_file)
+    with open(os.path.abspath("Epic_Translation/translation/translation_dict.json"), "r") as read_json:
+        dictionary = json.load(read_json)
 
     # convert source and target integers to string for JSON
     source = str(source)
-    traget = str(target)
+    target = str(target)
 
     # loop through all phrases
     for phrase in phrases:
+
+        # skip numbers
+        if phrase.isdigit():
+            translated.append(phrase)
+            continue
+
         # remove any hyphens before searching
-        phrase = phrase.replace("-", "")
+        phrase = phrase.replace("_", " ")
+
+        # convert to lowercase to make case insensitive
+        phrase = phrase.lower();
+        
         word = find_in_dict(phrase, source, target, dictionary)
 
-        # check if None
+        # check if not found in dictionary
         if not word:
             word = call_translate_api(phrase, target)
+
             # add word into dictionary
             dictionary["extra"][source][phrase] = {target : word}
-            # TODO: update file
+
+            # update JSON file
+            with open(os.path.abspath("Epic_Translation/translation/translation_dict.json"), "w") as write_json:
+                json.dump(dictionary, write_json, indent = 4, ensure_ascii=False)
         
         translated.append(word)
 
