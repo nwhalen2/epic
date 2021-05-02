@@ -27,7 +27,7 @@ def tokenize_prescrip(prescription):
         ('into', 'affected', 'eye(s)'), ('under', 'the', 'skin'), 
         ('each', 'day'), ('a', 'day'), ('for', 'up', 'to'), 
         ('for', 'pain'), ('with', 'meals'), ('if', 'needed'), 
-        ('at', 'bed', 'time'), ('mild', 'pain'), ('for', 'moderate', 'pain'), 
+        ('at', 'bed', 'time'), ('for', 'mild', 'pain'), ('for', 'moderate', 'pain'), 
         ('do', 'not', 'crush', 'or', 'chew'), ('for', 'wheezing'), 
         ('for', 'cough'), ('for', 'blood', 'pressure'), 
         ('at', 'the', 'same', 'time'), ('for', 'cholesterol'), 
@@ -138,7 +138,24 @@ def call_translate_api(phrase, target):
 # @param    list of strings
 # @return   translated phrase
 def concat_translation(phrases):
-    pass
+    
+    translation = ""
+
+    for idx, word in enumerate(phrases):
+        # capitalize first word
+        if idx == 0:
+            word = word.title()
+
+        translation += word
+
+        # add spaces in between each word
+        if idx != len(phrases) - 1:
+            translation += " "
+        # add ending punctuation
+        else:
+            translation += "."
+
+    return translation
 
 
 # Prompt user for input
