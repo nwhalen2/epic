@@ -76,6 +76,43 @@ class TestTranslationMethods(unittest.TestCase):
                 target_prescrip = row[2]
                 target_lang = row[1]
 
+                # skip non-English translations
+                if target_lang != "42":
+                    continue
+
+                tokens = tr.tokenize_prescrip(source_prescrip)
+                phrases = tr.check_tokenized_phrases(tokens, 136, 42)
+                translation = tr.concat_translation(phrases)
+
+                # ignore punctuation in target string
+                for char in string.punctuation:
+                    target_prescrip = target_prescrip.replace(char, "")
+                target_prescrip = target_prescrip + "."
+                
+                try:
+                    self.assertEqual(translation, target_prescrip)
+                except AssertionError as err:
+                    self.verificationErrors.append(str(err))
+
+        for error in self.verificationErrors:
+            print(error)
+
+    def test_esp_to_eng_sentence(self):
+        
+        self.verificationErrors = []
+
+        # self.assertEqual('method call', 'expected result')
+        with open(os.path.abspath("Epic_Translation/tests/epic_data.csv"), newline="") as csv_data:
+            csv_reader = csv.reader(csv_data, delimiter=",")
+            for idx, row in enumerate(csv_reader):
+                # skip headers
+                if idx == 0:
+                    continue;
+
+                source_prescrip = row[0]
+                target_prescrip = row[2]
+                target_lang = row[1]
+
                 # skip non-Spanish translations
                 if target_lang != "136":
                     continue
@@ -95,10 +132,7 @@ class TestTranslationMethods(unittest.TestCase):
                     self.verificationErrors.append(str(err))
 
         for error in self.verificationErrors:
-            print(error)
-
-    # def test_esp_to_eng_sentence(self):
-        # self.assertEqual('method call', 'expected result')
+            print (error)
 
     def test_find_in_dict(self):
         with open(os.path.abspath("Epic_Translation/translation/translation_dict.json"), "r") as fh:
