@@ -74,9 +74,13 @@ def check_tokenized_phrases(phrases, source, target):
         
         word = find_in_dict(phrase, source, target, dictionary)
 
+        # if multiple translations, default to the first one 
+        if type(word) == list:
+            word = word[0]
+
         # check if not found in dictionary
         if not word:
-            word = call_translate_api(phrase, source, target)
+            word = call_translate_api(phrase, target)
 
             # add word into dictionary
             dictionary["extra"][source][phrase] = {target : word}
@@ -111,20 +115,8 @@ def find_in_dict(phrase, source, target, json_dict):
 # @param    string to translate
 # @param    integer target language
 # @return   return translated value
-def call_translate_api(phrase, source, target):
+def call_translate_api(phrase, target):
     
-    if source == 42:
-        from_lang = 'en'
-    elif source == 47:
-        from_lang = 'fr'
-    elif source == 136:
-        from_lang = 'es'
-    elif source == 41:
-        from_lang = 'nl'
-    # default to english source
-    else:
-        from_lang = 'en'
-
     if target == 42:
         to_lang = 'en'
     elif target == 47:
@@ -139,9 +131,13 @@ def call_translate_api(phrase, source, target):
     
     # call translator api
     translator = google_translator()
-    translate_text = translator.translate(phrase, lang_src=from_lang, lang_tgt=to_lang)
+    translate_text = translator.translate(phrase, lang_tgt=to_lang)
+    # default to first translation
+    if type(translate_text) == list:
+        translate_text = translate_text[0]
+    translate_text = translate_text.lower().rstrip()
 
-    return translate_text.rstrip()
+    return translate_text
 
 
 # Concatenate translated words together into one phrase
