@@ -2,4 +2,5 @@
 # Imports all dependent packages
 
 nltk
-googletrans
+requests
+google_trans_new
