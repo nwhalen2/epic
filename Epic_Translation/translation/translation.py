@@ -8,8 +8,7 @@
 #
 ############################################################################
 
-import googletrans
-#import goslate
+from google_trans_new import google_translator
 import nltk
 import json
 import string
@@ -77,7 +76,7 @@ def check_tokenized_phrases(phrases, source, target):
 
         # check if not found in dictionary
         if not word:
-            word = call_translate_api(phrase, target)
+            word = call_translate_api(phrase, source, target)
 
             # add word into dictionary
             dictionary["extra"][source][phrase] = {target : word}
@@ -112,26 +111,37 @@ def find_in_dict(phrase, source, target, json_dict):
 # @param    string to translate
 # @param    integer target language
 # @return   return translated value
-def call_translate_api(phrase, target):
+def call_translate_api(phrase, source, target):
+    
+    if source == 42:
+        from_lang = 'en'
+    elif source == 47:
+        from_lang = 'fr'
+    elif source == 136:
+        from_lang = 'es'
+    elif source == 41:
+        from_lang = 'nl'
+    # default to english source
+    else:
+        from_lang = 'en'
 
     if target == 42:
-        to_lang = 'EN'
+        to_lang = 'en'
     elif target == 47:
-        to_lang = 'FR'
+        to_lang = 'fr'
     elif target == 136:
-        to_lang = 'ES'
+        to_lang = 'es'
     elif target == 41:
-        to_lang = 'NL'
-    # default to auto detect
+        to_lang = 'nl'
+    # default to spanish target
     else:
-        to_lang = 'auto'
+        to_lang = 'es'
     
-    # call translator api 
-    #gs = goslate.Goslate(service_urls=['http://translate.google.com'])
-    #translation = gs.translate(phrase, to_lang)
-    translation = ""
+    # call translator api
+    translator = google_translator()
+    translate_text = translator.translate(phrase, lang_src=from_lang, lang_tgt=to_lang)
 
-    return translation
+    return translate_text.rstrip()
 
 
 # Concatenate translated words together into one phrase

@@ -24,10 +24,12 @@ class TestTranslationMethods(unittest.TestCase):
     '''Test translation methods'''
 
     def test_call_api(self):
-        phrase = tr.call_translate_api("as directed", "ES")
+        phrase = tr.call_translate_api("as directed", "en", "es")
         self.assertEqual(phrase, "como se indica")
-        phrase = tr.call_translate_api("como se indica", "EN")
-        self.assertEqual(phrase, "as directed")
+        print(phrase)
+        phrase = tr.call_translate_api("para sibilancias", "es", "en")
+        print(phrase)
+        self.assertEqual(phrase, "for wheezing")
 
     def test_tokenize_prescrip(self):
         phrase = "Take 1 tablet by mouth"
