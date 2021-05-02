@@ -16,6 +16,8 @@ from translation import translation as tr
 import os
 import json
 import unittest
+import csv
+import string
 
 
 class TestTranslationMethods(unittest.TestCase):
@@ -40,8 +42,8 @@ class TestTranslationMethods(unittest.TestCase):
         phrase = "Take 1 capsule (400 mg total) by mouth every 6 (six) hours if needed for mild pain for up to 7 days."
         tokenized = tr.tokenize_prescrip(phrase)
         self.assertEqual(tokenized, ["Take", "1", "capsule", "400", "mg",
-            "total", "by_mouth", "every", "6", "six", "hours", "if_needed", "for", 
-            "mild_pain", "for_up_to", "7", "days"])
+            "total", "by_mouth", "every", "6", "six", "hours", "if_needed",
+            "for_mild_pain", "for_up_to", "7", "days"])
 
     def test_check_tokenized_phrases(self):
         phrase = "Apply 1 application topically 2 (two) times a day."
@@ -55,23 +57,47 @@ class TestTranslationMethods(unittest.TestCase):
         tokenized = tr.tokenize_prescrip(phrase)
         test_phrases = tr.check_tokenized_phrases(tokenized, 42, 136)
         translated = ["tome", "1", "cápsula", "400", "mg", "en total", "por vía oral",
-                      "cade", "6", "seis", "horas", "si necesario", "7", "días"]
-        print(test_phrases)
-        #self.assertEqual(translated, test_phrases)
+                      "cada", "6", "seis", "horas", "si necesario", "para el dolor leve",
+                      "por hasta", "7", "días"]
+        self.assertEqual(translated, test_phrases)
 
-    # def test_eng_to_esp_words(self):
-        # self.assertEqual('method call', 'expected result')
+    def test_eng_to_esp_sentence(self):
 
-    # def test_esp_to_eng_words(self):
-        # self.assertEqual('method call', 'expected result')
+        self.verificationErrors = []
 
-    # def test_eng_to_esp_sentence(self):
-        # self.assertEqual('method call', 'expected result')
-    
+        with open(os.path.abspath("Epic_Translation/tests/epic_data.csv"), newline="") as csv_data:
+            csv_reader = csv.reader(csv_data, delimiter=",")
+            for idx, row in enumerate(csv_reader):
+                # skip headers
+                if idx == 0:
+                    continue;
+
+                source_prescrip = row[0]
+                target_prescrip = row[2]
+                target_lang = row[1]
+
+                # skip non-Spanish translations
+                if target_lang != "136":
+                    continue
+
+                tokens = tr.tokenize_prescrip(source_prescrip)
+                phrases = tr.check_tokenized_phrases(tokens, 42, 136)
+                translation = tr.concat_translation(phrases)
+
+                # ignore punctuation in target string
+                for char in string.punctuation:
+                    target_prescrip = target_prescrip.replace(char, "")
+                target_prescrip = target_prescrip + "."
+                
+                try:
+                    self.assertEqual(translation, target_prescrip)
+                except AssertionError as err:
+                    self.verificationErrors.append(str(err))
+
+        for error in self.verificationErrors:
+            print(error)
+
     # def test_esp_to_eng_sentence(self):
-        # self.assertEqual('method call', 'expected result')
-    
-    # def test_api_translation(self):
         # self.assertEqual('method call', 'expected result')
 
     def test_find_in_dict(self):
@@ -97,7 +123,7 @@ class TestTranslationMethods(unittest.TestCase):
         self.assertEqual(translation, "for cholesterol")
         
         translation = tr.find_in_dict("aplicación", "136", "42", dictionary)
-        print(translation)
         self.assertEqual(translation, "application")
+
 if __name__ == '__main__':
     unittest.main()
