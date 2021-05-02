@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<title>Translation</title>
+	<!link rel="icon" href="../epic-logo.png">
+
+	<!bootstrap>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<!script src="api.js"/>
+
+	<link rel="stylesheet" href="../static/style.css"/>
+	<link rel="stylesheet" href="../static/header.css"/>
+	
+
+</head>
+
+<script>
+	function translate() {
+		var original = $('#original').val();
+		var source = $('#source').val();
+		var target = $('#target').val();
+
+		$.ajax({
+			url: "../api.py",
+			context: document.body
+			type: "POST",
+			data: {original:original, source:source, target:target}
+
+			}).done(function(response) {
+				#alert('finished python script');;
+				var html= "<br><br><br><br><p> <b> NEW STRING: <b><p>";
+				response = response.result;
+					$.each(response, function(key, val) {
+						console.log(val);
+						html+="<p>"+val+"<p>"
+					});
+			html +="<br>";
+			$(".show-data").append(html);
+			});
+		});	
+	};
+</script>
+
+<body>
+	<div class="banner"> 
+			<img class="rss.opacity" src="../../epic-logo.png"/>
+	</div>
+	<h1>
+		Epic Systems Preternship
+	</h1>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				
+			</div> 
+	
+			<div class="col-sm-4">
+
+				<label> original prescription </label>
+				<input type="text" id="original" name="original"/><br><br>
+
+				<label> source language </label>
+				<input type="text" id="source" name="source"/><br><br>
+
+				<label> target language </label>
+				<input type="text" id="target" name="target"/><br><br>
+				<button id="clicked" onclick="translate()"> submit </button>
+			
+				<div class="response">
+					result: 	
+					<div class="show-data"/>
+				</div>
+
+				
+				<!form action='helloworld.py' method='get'>
+					<!label for="name"> </label>
+					<!input type="text" name="firstname"/>
+					<!input type="submit" class="button"/>
+				</form>
+				
+			</div>
+			<div class="col-sm-4"> </div>
+		</div>
+	</div>
+
+</body>
+
+</html>
