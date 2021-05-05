@@ -24,10 +24,14 @@ class TestTranslationMethods(unittest.TestCase):
     '''Test translation methods'''
 
     def test_call_api(self):
-        phrase = tr.call_translate_api("hello", "es")
+        phrase = tr.call_translate_api("hello", "136")
         self.assertEqual(phrase.lower(), "hola")
-        phrase = tr.call_translate_api("as directed", "es")
+        phrase = tr.call_translate_api("as directed", "136")
         self.assertEqual(phrase.lower(), "como se indica")
+        phrase = tr.call_translate_api("in the morning", "136")
+        self.assertEqual(phrase.lower(), "en la mañana")
+        phrase = tr.call_translate_api("hola", "42")
+        self.assertEqual(phrase.lower(), "hello")
 
     def test_tokenize_prescrip(self):
         phrase = "Take 1 tablet by mouth"
@@ -57,11 +61,11 @@ class TestTranslationMethods(unittest.TestCase):
         tokenized = tr.tokenize_prescrip(phrase)
         test_phrases = tr.check_tokenized_phrases(tokenized, 42, 136)
         translated = ["tome", "1", "cápsula", "400", "mg", "en total", "por vía oral",
-                      "cada", "6", "seis", "horas", "si necesario", "para el dolor leve",
+                      "cada", "6", "seis", "horas", "si es necesario", "para el dolor leve",
                       "por hasta", "7", "días"]
         self.assertEqual(translated, test_phrases)
 
-    def test_eng_to_esp_sentence(self):
+    def test_esp_to_en_sentence(self):
 
         self.verificationErrors = []
 
@@ -72,12 +76,12 @@ class TestTranslationMethods(unittest.TestCase):
                 if idx == 0:
                     continue;
 
-                source_prescrip = row[0]
-                target_prescrip = row[2]
+                source_prescrip = row[2]
+                target_prescrip = row[0]
                 target_lang = row[1]
 
                 # skip non-English translations
-                if target_lang != "42":
+                if target_lang != "136":
                     continue
 
                 tokens = tr.tokenize_prescrip(source_prescrip)
@@ -97,7 +101,7 @@ class TestTranslationMethods(unittest.TestCase):
         for error in self.verificationErrors:
             print(error)
 
-    def test_esp_to_eng_sentence(self):
+    def test_eng_to_esp_sentence(self):
         
         self.verificationErrors = []
 

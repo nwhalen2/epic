@@ -30,7 +30,17 @@ def tokenize_prescrip(prescription):
         ('do', 'not', 'crush', 'or', 'chew'), ('for', 'wheezing'), 
         ('for', 'cough'), ('for', 'blood', 'pressure'), 
         ('at', 'the', 'same', 'time'), ('for', 'cholesterol'), 
-        ('in', 'the', 'morning'), ('in', 'the', 'evening')])
+        ('in', 'the', 'morning'), ('in', 'the', 'evening'),
+        ('por', 'vía', 'oral'), ('por', 'vía', 'tópica'), 
+        ('en', 'los', 'orificios', 'nasales', 'afectados'), ('según', 'las', 'instrucciones'),
+        ('en', 'un', 'orificio', 'nasal'), ('come se indica'),
+        ('el', 'nivel', 'de', 'azúcar', 'en', 'la', 'sangre'), 
+        ('en', 'los', 'ojos', 'afectados'), ('al', 'día'), ('una', 'vez'),
+        ('por', 'hasta', '7', 'días'), ('en', 'total'), ('para', 'el', 'dolor'),
+        ('con', 'la', 'comida'), ('si', 'es', 'necesario'), ('al', 'acostarse'),
+        ('para', 'el', 'dolor', 'leve'), ('para', 'el', 'dolor', 'moderado'),
+        ('no', 'triture', 'ni', 'mastique'), ('para', 'sibilancias'), ('para', 'la', 'tos'),
+        ('a', 'la', 'misma', 'hora'), ('el colesterol'), ('para', 'la', 'presión', 'arterial')])
 
     punctuation = string.punctuation
     for c in punctuation:
@@ -117,13 +127,13 @@ def find_in_dict(phrase, source, target, json_dict):
 # @return   return translated value
 def call_translate_api(phrase, target):
     
-    if target == 42:
+    if target == "42":
         to_lang = 'en'
-    elif target == 47:
+    elif target == "47":
         to_lang = 'fr'
-    elif target == 136:
+    elif target == "136":
         to_lang = 'es'
-    elif target == 41:
+    elif target == "41":
         to_lang = 'nl'
     # default to spanish target
     else:
