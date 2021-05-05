@@ -5,3 +5,4 @@ nltk
 requests
 google_trans_new
 goslate
+flask
