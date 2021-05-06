@@ -1,0 +1,48 @@
+.col-sm-4 {
+    text-align: center;
+}
+
+div {
+	text-align: center;
+}
+
+h1 {
+    padding: .25em;
+	text-align: center;
+}
+
+body {
+    margin: 0 0 55px 0;
+    text-align: center;
+    text-color: red;
+}
+
+.banner {
+    padding: 10px;
+    background-color: red;
+    color: white;
+    text-align: left;
+}
+
+img {
+    filter: grayscale(100%) invert(100%) brightness(100%);
+}
+
+
+button {
+    color: white;
+    background-color: red;
+}
+
+button::hover {
+    background-color: black;
+}
+
+.response {
+    color: red;
+    padding: 2em;
+    margin: 1em;
+    text-align: left;
+    background-color: black;
+    border-color: red;
+}

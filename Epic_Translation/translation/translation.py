@@ -178,11 +178,11 @@ def concat_translation(phrases):
 # @return   string phrase to be translated
 # @return   int source language
 # @return   int target language
-def get_input():
+def get_input(phrase, source, target):
     
-    phrase = input("Enter prescription message: ")
-    source = input("Enter source language (ex: English): ")
-    target = input("Enter target language (ex: Spanish): ")
+    #phrase = input("Enter prescription message: ")
+    #source = input("Enter source language (ex: English): ")
+    #target = input("Enter target language (ex: Spanish): ")
 
     # match source input with language codes
     source = source.lower()

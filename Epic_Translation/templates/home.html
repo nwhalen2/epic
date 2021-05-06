@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>"Epic" Translation</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	<!bootstrap>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!script src="api.js"/>
+
+    <link rel="stylesheet" href="../static/style.css/">
+    <!link rel="stylesheet" href="../static/header.css"/>
+
+</head>
+<script>
+function myFunction() {
+var text1= $('#text1').val();
+var text2= $('#text2').val();
+var text3= $('#text3').val();
+  $.ajax({
+              url: "/join",
+              type: "POST",
+              data: {text1:text1,
+              text2:text2,
+              text3:text3}
+          }).done(function(response) {
+            var html= "<br><br><br><p> <b> RESULT : <b><p>";
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    html+="<p>"+val+"<p>"
+                });
+                html +="<br>";
+                $(".show-data").append(html);
+            });
+};
+  </script>
+<body>
+	
+    <div class="banner">
+            <img class="rss.opacity" src="../../epic-logo.png"/>
+    </div>
+
+	<h2> Epic Systems Preternship </h2>
+
+	<h4> Enter the following information: </h4>
+
+    <p>
+        <br>
+            Original Prescription   <input type="text" id="text1" name="text1"><br><br>
+            Source Language   <input type="text" id="text2" name="text2"><br><br>
+            Target Language   <input type="text" id="text3" name="text3"><br><br>
+            <button id="clicked" onclick="myFunction()">Submit</button>
+        </p>
+    <div class="show-data" >
+    </div>
+</body>
+</html>
