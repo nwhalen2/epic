@@ -1,3 +1,4 @@
+(**run the following commands for the first setup only**)
 - run 'python3 get-pip.py' in this directory
 
 - export the package in your .bashrc file
@@ -5,6 +6,8 @@
 - source ~/.bashrc
 
 - pip install virtualenv
+
+(**run the next set of commands everytime you run project**)
 
 - make sure you are in 'epic' top-level directory
 
