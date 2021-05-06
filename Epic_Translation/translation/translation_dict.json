@@ -561,59 +561,14 @@
             "para el colesterol": {
                 "42": "for cholesterol"
             },
-            "vía": {
-                "42": "vía"
-            },
-            "oral": {
-                "42": "oral"
-            },
-            "en": {
-                "42": "en"
-            },
-            "total": {
-                "42": "total"
-            },
-            "si": {
-                "42": "cuatro"
-            },
-            "es": {
-                "42": "es"
-            },
-            "necesario": {
-                "42": "necesario"
-            },
-            "para": {
-                "42": "para"
-            },
-            "el": {
-                "42": "el"
-            },
-            "dolor": {
-                "42": "dolor"
-            },
-            "leve": {
-                "42": "luz"
-            },
-            "tópica": {
-                "42": "tópica"
-            },
-            "al": {
-                "42": "al"
+            "por hasta 7 días": {
+                "42": "for up to 7 days"
             },
             "con": {
-                "42": "con"
+                "42": "with"
             },
             "comida": {
-                "42": "comida"
-            },
-            "sibilancias": {
-                "42": "sibilancias"
-            },
-            "una": {
-                "42": "una"
-            },
-            "acostarse": {
-                "42": "acostarse"
+                "42": "food"
             },
             "tk": {
                 "42": "tk"
@@ -622,16 +577,37 @@
                 "42": "t"
             },
             "po": {
-                "42": "por"
+                "42": "by"
             },
             "qd": {
-                "42": "tal vez"
-            },
-            "moderado": {
-                "42": "moderado"
+                "42": "may be"
             },
             "a": {
-                "42": "uno"
+                "42": "a"
+            },
+            "oral": {
+                "42": "oral"
+            },
+            "si": {
+                "42": "four"
+            },
+            "es": {
+                "42": "it is"
+            },
+            "necesario": {
+                "42": "necessary"
+            },
+            "para": {
+                "42": "in order to"
+            },
+            "el": {
+                "42": "the"
+            },
+            "dolor": {
+                "42": "pain"
+            },
+            "leve": {
+                "42": "light"
             },
             "no": {
                 "42": "no"
@@ -640,202 +616,160 @@
                 "42": "triture"
             },
             "ni": {
-                "42": "usted"
+                "42": "you"
             },
             "mastique": {
                 "42": "mastique"
             },
             "tópicamente": {
-                "42": "tópicamente"
-            },
-            "los": {
-                "42": "los"
-            },
-            "orificios": {
-                "42": "orificios"
-            },
-            "nasales": {
-                "42": "nasales"
-            },
-            "afectados": {
-                "42": "afectados"
+                "42": "topically"
             },
             "retire": {
-                "42": "jubilarse"
+                "42": "retire"
             },
             "y": {
                 "42": "y"
             },
             "deseche": {
-                "42": "deseche"
+                "42": "disphere"
             },
             "dentro": {
-                "42": "dentro"
+                "42": "within"
             },
             "de": {
-                "42": "de"
+                "42": "of"
             },
             "o": {
                 "42": "o"
             },
             "según": {
-                "42": "según"
+                "42": "according"
             },
             "la": {
-                "42": "la"
+                "42": "the"
             },
             "indicación": {
-                "42": "indicación"
+                "42": "indication"
             },
             "del": {
-                "42": "del"
+                "42": "of"
             },
             "doctor": {
-                "42": "médico"
+                "42": "doctor"
             },
             "ml": {
                 "42": "ml"
             },
-            "tos": {
-                "42": "ellos"
-            },
-            "presión": {
-                "42": "presión"
-            },
-            "arterial": {
-                "42": "arterial"
-            },
             "enjuague": {
-                "42": "enjuague"
+                "42": "rinse"
             },
             "boca": {
-                "42": "boca"
+                "42": "mouth"
             },
             "agua": {
-                "42": "agua"
+                "42": "water"
             },
             "después": {
-                "42": "después"
+                "42": "later"
             },
             "uso": {
-                "42": "uso"
+                "42": "use"
             },
             "reducir": {
-                "42": "reducir"
+                "42": "reduce"
             },
             "regusto": {
-                "42": "regusto"
+                "42": "aftertaste"
             },
             "incidencia": {
-                "42": "incidencia"
+                "42": "incidence"
             },
             "candidiasis": {
                 "42": "candidiasis"
             },
             "lo": {
-                "42": "lo"
+                "42": "it"
             },
             "trague": {
-                "42": "trague"
-            },
-            "misma": {
-                "42": "misma"
+                "42": "swallow."
             },
             "antes": {
-                "42": "antes"
+                "42": "before"
+            },
+            "acostarse": {
+                "42": "lie"
             },
             "colesterol": {
-                "42": "colesterol"
+                "42": "cholesterol"
             },
-            "use": {
-                "42": "usar"
-            },
-            "las": {
-                "42": "las"
-            },
-            "instrucciones": {
-                "42": "instrucciones"
-            },
-            "díaen": {
-                "42": "duarda"
-            },
-            "un": {
+            "una": {
                 "42": "a"
             },
-            "orificio": {
-                "42": "orificio"
+            "use": {
+                "42": "use"
             },
-            "nasal": {
-                "42": "nasal"
+            "al": {
+                "42": "to the"
+            },
+            "díaen": {
+                "42": "dayen"
+            },
+            "total": {
+                "42": "total"
             },
             "como": {
-                "42": "como"
+                "42": "what"
             },
             "se": {
-                "42": "se"
+                "42": "i know"
             },
             "indica": {
-                "42": "indica"
+                "42": "indicate."
             },
             "mida": {
-                "42": "qué"
+                "42": "what"
             },
-            "nivel": {
-                "42": "nivel"
-            },
-            "azúcar": {
-                "42": "azúcar"
-            },
-            "sangre": {
-                "42": "sangre"
+            "el nivel de azúcar en la sangre": {
+                "42": "the level of blood sugar"
             },
             "dispense": {
-                "42": "dispensar"
+                "42": "dispense"
             },
             "cobertura": {
-                "42": "cobertura"
+                "42": "coverage"
             },
             "seguro": {
-                "42": "seguro"
+                "42": "insurance"
             },
             "paciente": {
-                "42": "paciente"
+                "42": "patient"
             },
             "cie": {
-                "42": "usted"
+                "42": "you"
             },
             "e119": {
                 "42": "e119"
             },
-            "ojos": {
-                "42": "ojos"
-            },
             "sea": {
-                "42": "mar"
-            },
-            "¡este": {
-                "42": "es"
-            },
-            "descargo": {
-                "42": "descargo"
-            },
-            "responsabilidad": {
-                "42": "responsabilidad"
-            },
-            "exclusivo": {
-                "42": "exclusivo"
-            },
-            "por hasta 7 días": {
-                "42": "por hasta 7 días"
-            },
-            "el nivel de azúcar en la sangre": {
-                "42": "el nivel de azúcar en la sangre"
-            },
-            "con comida": {
-                "42": "with meals"
+                "42": "sea"
             },
             "con la comida": {
-                "42": "with meals"
+                "42": "with the food"
+            },
+            "¡este": {
+                "42": "it is"
+            },
+            "un": {
+                "42": "a"
+            },
+            "descargo": {
+                "42": "discharge"
+            },
+            "responsabilidad": {
+                "42": "responsibility"
+            },
+            "exclusivo": {
+                "42": "exclusive"
             }
         }
     }

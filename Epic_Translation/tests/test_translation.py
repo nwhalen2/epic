@@ -49,6 +49,10 @@ class TestTranslationMethods(unittest.TestCase):
             "total", "by_mouth", "every", "6", "six", "hours", "if_needed",
             "for_mild_pain", "for_up_to", "7", "days"])
 
+        phrase = "si es necesario"
+        tokenized = tr.tokenize_prescrip(phrase)
+        self.assertEqual(tokenized, ["si_es_necesario"])
+
     def test_check_tokenized_phrases(self):
         phrase = "Apply 1 application topically 2 (two) times a day."
         tokenized = tr.tokenize_prescrip(phrase)
