@@ -18,6 +18,8 @@
 
 - run 'make run' to execute translate.py
 
+- once site is running, can be found at ec2-3-12-103-196.us-east-2.compute.amazonaws.com:5000
+
 - run 'make test' to execute unit tests
 
 - run 'make deactivate'
