@@ -33,6 +33,7 @@ class TestTranslationMethods(unittest.TestCase):
         phrase = tr.call_translate_api("hola", "42")
         self.assertEqual(phrase.lower(), "hello")
 
+
     def test_tokenize_prescrip(self):
         phrase = "Take 1 tablet by mouth"
         tokenized = tr.tokenize_prescrip(phrase)
@@ -69,6 +70,7 @@ class TestTranslationMethods(unittest.TestCase):
                       "por hasta", "7", "días"]
         self.assertEqual(translated, test_phrases)
 
+
     def test_esp_to_en_sentence(self):
 
         self.verificationErrors = []
@@ -104,6 +106,7 @@ class TestTranslationMethods(unittest.TestCase):
 
         for error in self.verificationErrors:
             print(error)
+
 
     def test_eng_to_esp_sentence(self):
         
@@ -142,6 +145,7 @@ class TestTranslationMethods(unittest.TestCase):
         for error in self.verificationErrors:
             print (error)
 
+
     def test_find_in_dict(self):
         with open(os.path.abspath("Epic_Translation/translation/translation_dict.json"), "r") as fh:
             dictionary = json.load(fh)
@@ -166,6 +170,7 @@ class TestTranslationMethods(unittest.TestCase):
         
         translation = tr.find_in_dict("aplicación", "136", "42", dictionary)
         self.assertEqual(translation, "application")
+
 
 if __name__ == '__main__':
     unittest.main()
