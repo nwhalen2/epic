@@ -513,7 +513,10 @@
             },
             "disclaimer": {
                 "136": "Descargo de responsabilidad"
-            }
+            },
+            "pill": {
+                "136": "píldora"
+      	    }
         },
         "136": {
             "mg": {
@@ -767,10 +770,8 @@
             },
             "responsabilidad": {
                 "42": "responsibility"
-            },
-            "exclusivo": {
-                "42": "exclusive"
-            }
-        }
+    
+	    }
+	}
     }
 }
