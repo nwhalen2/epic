@@ -7,7 +7,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-	<!bootstrap>
+    <!---bootstrap--->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -17,10 +17,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <!script src="api.js"/>
-
     <link rel="stylesheet" href="../static/style.css/">
-    <!link rel="stylesheet" href="../static/header.css"/>
 
 </head>
 <script>
@@ -35,7 +32,7 @@ var text3= $('#text3').val();
               text2:text2,
               text3:text3}
           }).done(function(response) {
-            var html= "<br><br><br><p> <b> TRANSLATION : <b><p>";
+            var html= "<br><p> <b> TRANSLATION : <b><p>";
             response =response.result;
                  $.each(response,function(key,val){
                  console.log(val);
@@ -49,12 +46,13 @@ var text3= $('#text3').val();
 <body>
 	
     <div class="banner">
-            <img class="rss.opacity" src="../../epic-logo.png"/>
+            <!img class="rss.opacity" src="../../epic-logo.png"/>
+	<h2> Epic Systems Preternship </h2>
+
+	<h6> Bridget Arbuckle, Natalie Whalen, Anna Albertini, Kristen Friday </h6>
     </div>
 
-	<h2> Epic Systems Preternship </h2>
-	<h6> Bridget Arbuckle, Natalie Whalen, Anna Albertini, Kristen Friday </h6>
-
+	<br>
 	<h4> Enter the following information: </h4>
 
     <p>
