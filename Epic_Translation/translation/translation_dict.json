@@ -245,7 +245,7 @@
                 "136": "tres"
             },
             "four": {
-                "136": "quatro"
+                "136": "cuatro"
             },
             "five": {
                 "136": "cinco"
@@ -516,6 +516,12 @@
             },
             "pill": {
                 "136": "píldora"
+            },
+            "into affected nostrils": {
+                "136": "en fosas nasales afectadas"
+            },
+            "into affected eyes": {
+                "136": "en los ojos afectados"
             }
         },
         "136": {

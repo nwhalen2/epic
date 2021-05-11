@@ -17,13 +17,13 @@ import os
 
 
 # Split prescription into phrases
-# @param    string
+# @param    string prescription
 # @return   list of separated phrases
 def tokenize_prescrip(prescription):
     tokenizer = nltk.tokenize.MWETokenizer([('by', 'mouth'), 
-        ('into', 'affected', 'nostril(s)'), ('as', 'instructed'), 
+        ('into', 'affected', 'nostrils'), ('as', 'instructed'), 
         ('into', 'one', 'nostril'), ('as', 'directed'), ('blood', 'sugar'), 
-        ('into', 'affected', 'eye(s)'), ('under', 'the', 'skin'), 
+        ('into', 'affected', 'eyes'), ('under', 'the', 'skin'), 
         ('each', 'day'), ('a', 'day'), ('for', 'up', 'to'), 
         ('for', 'pain'), ('with', 'meals'), ('if', 'needed'), 
         ('at', 'bed', 'time'), ('for', 'mild', 'pain'), 
