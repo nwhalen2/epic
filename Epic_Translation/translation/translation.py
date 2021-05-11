@@ -35,7 +35,7 @@ def tokenize_prescrip(prescription):
         ('por', 'vía', 'oral'), ('por', 'vía', 'tópica'), 
         ('en', 'los', 'orificios', 'nasales', 'afectados'), 
         ('según', 'las', 'instrucciones'),
-        ('en', 'un', 'orificio', 'nasal'), ('come se indica'),
+        ('en', 'un', 'orificio', 'nasal'), ('como', 'se', 'indica'),
         ('el', 'nivel', 'de', 'azúcar', 'en', 'la', 'sangre'), 
         ('en', 'los', 'ojos', 'afectados'), ('al', 'día'), ('una', 'vez'),
         ('por', 'hasta', '7', 'días'), ('en', 'total'), 
@@ -49,6 +49,9 @@ def tokenize_prescrip(prescription):
     punctuation = string.punctuation
     for c in punctuation:
         prescription = prescription.replace(c, "")
+
+    # convert to lowercase to make case insensitive
+    prescription = prescription.lower()
     
     words = tokenizer.tokenize(prescription.split());
 
@@ -83,9 +86,6 @@ def check_tokenized_phrases(phrases, source, target):
         # remove any hyphens before searching
         phrase = phrase.replace("_", " ")
 
-        # convert to lowercase to make case insensitive
-        phrase = phrase.lower();
-        
         word = find_in_dict(phrase, source, target, dictionary)
 
         # if multiple translations, default to the first one 

@@ -35,24 +35,29 @@ class TestTranslationMethods(unittest.TestCase):
 
 
     def test_tokenize_prescrip(self):
-        phrase = "Take 1 tablet by mouth"
+        phrase = "take 1 tablet by mouth"
         tokenized = tr.tokenize_prescrip(phrase)
-        self.assertEqual(tokenized, ["Take", "1", "tablet", "by_mouth"])
+        self.assertEqual(tokenized, ["take", "1", "tablet", "by_mouth"])
         
         phrase = "Apply 1 application topically 2 (two) times a day."
         tokenized = tr.tokenize_prescrip(phrase)
-        self.assertEqual(tokenized, ["Apply", "1", "application", "topically", "2",
+        self.assertEqual(tokenized, ["apply", "1", "application", "topically", "2",
             "two", "times", "a_day"])
         
-        phrase = "Take 1 capsule (400 mg total) by mouth every 6 (six) hours if needed for mild pain for up to 7 days."
+        phrase = "take 1 capsule (400 mg total) by mouth every 6 (six) hours if needed for mild pain for up to 7 days."
         tokenized = tr.tokenize_prescrip(phrase)
-        self.assertEqual(tokenized, ["Take", "1", "capsule", "400", "mg",
+        self.assertEqual(tokenized, ["take", "1", "capsule", "400", "mg",
             "total", "by_mouth", "every", "6", "six", "hours", "if_needed",
             "for_mild_pain", "for_up_to", "7", "days"])
 
         phrase = "si es necesario"
         tokenized = tr.tokenize_prescrip(phrase)
         self.assertEqual(tokenized, ["si_es_necesario"])
+       
+        phrase = "UTILICE COMO SE INDICA."
+        tokenized = tr.tokenize_prescrip(phrase)
+        self.assertEqual(tokenized, ["utilice", "como_se_indica"])
+
 
     def test_check_tokenized_phrases(self):
         phrase = "Apply 1 application topically 2 (two) times a day."
@@ -109,10 +114,9 @@ class TestTranslationMethods(unittest.TestCase):
 
 
     def test_eng_to_esp_sentence(self):
-        
+
         self.verificationErrors = []
 
-        # self.assertEqual('method call', 'expected result')
         with open(os.path.abspath("Epic_Translation/tests/epic_data.csv"), newline="") as csv_data:
             csv_reader = csv.reader(csv_data, delimiter=",")
             for idx, row in enumerate(csv_reader):
