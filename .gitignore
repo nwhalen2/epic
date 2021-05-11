@@ -1,2 +1,2 @@
 # .gitignore
-Epic_Translation/tests/__pycache__/
+Epic_Translation/tests/__pycache__/*
